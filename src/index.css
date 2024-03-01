@@ -9,12 +9,14 @@
   font-family: 'futura';
   src: url(./assets/FoundersGrotesk-Semibold.ttf);
 }
-*{
-  /* font-family: 'MyCustomFont',Roboto, sans-serif; */
-  /* font-weight: 400; */
 
-}
-.masker>h1{
+.masker{
   font-family: 'futura' !important;
 }
-
+.text{
+  
+  font-family: 'futura' !important;
+}
+::-webkit-scrollbar{
+  width: 0;
+}
