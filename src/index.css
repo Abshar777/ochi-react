@@ -19,4 +19,30 @@
 }
 ::-webkit-scrollbar{
   width: 0;
+  opacity: 0;
+}
+.name{
+  font-family: 'futura' !important;
+  text-transform: uppercase;
+}
+.link::before{
+  content: "";
+  position: absolute;
+  bottom: .1rem;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  border-radius: 40px;
+  transform: scaleX(0);
+  background:black ;
+  transform-origin: right;
+  transition: transform 0.3s ease;
+
+}
+
+.link:hover::before{
+
+  transform: scaleX(1);
+  transform-origin: left;
+
 }

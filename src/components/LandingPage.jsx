@@ -1,26 +1,80 @@
-import React from 'react';
+import { motion } from 'framer-motion';
+import gsap,{Power4} from 'gsap';
+import React, { useEffect, useRef, useState } from 'react';
 import { MdArrowOutward } from "react-icons/md";
 
-function LandingPage() {
+function LandingPage(props) {
+    
+   const [a,b]=useState(0)
+    const comp1=useRef(null);
+   
+
+        useEffect(()=>{
+      
+            const count = setInterval(() => {
+                b((a) => {
+                  if (a < 100 && props.animation!==true) {
+                    return a + 1;
+                  } else {
+                    clearInterval(count);
+                    return 100;
+                  }
+                });
+              }, 50);
+              const ctx=gsap.context(()=>{
+                const t1=gsap.timeline()
+          if(props.animation){
+            gsap.to('#img',{
+                width:'8rem',
+                duration:.5,
+                ease:'expo.in'
+               
+            })
+            t1.to('#line',{
+                width:'100%',
+                duration:.5,
+            }).to('.name',{
+                opacity:0,
+                display:'none'
+            }).to('.footerLink',{
+                y:10,
+                opacity:1,
+                display:'flex',
+                delay:'-.2',
+                stagger:.1
+            })
+          }
+              
+             
+            },comp1);
+            return ()=>ctx.revert()
+          },[props.animation]);
+ 
     return (
-        <div className='w-full h-screen bg-[#F1F1F1] text-[#212121] pt-1'>
+        <div ref={comp1} data-scroll data-scroll-section data-scroll-speed='-.6' className='w-full  h-screen bg-[#F1F1F1] text-[#212121] pt-1'>
             <div className="textStructur mt-40 px-16">
-                {['we creat', 'Eye-Openging', 'presntations'].map((item, index) => (<div className="masker uppercase ">
+          
+                {['we creat', 'Eye-Openging', 'presntations'].map((item, index) => (<div key={index} className="masker uppercase ">
                 <div className="flex w-fit  items-center">
-                    {index==1 && (<div className='w-[8rem] h-[5rem] rounded-[10px] mt-2 mr-5  bg-center bg-no-repeat bg-cover'  style={{ backgroundImage: 'url("https://ochi.design/wp-content/uploads/2022/04/content-image01.jpg")' }}></div>)}
+                 
+                    {index==1 && (<motion.div id='img'  className='w-[0rem] h-[5rem] rounded-[10px] mt-2   bg-center bg-no-repeat bg-cover'  style={{ backgroundImage: 'url("https://ochi.design/wp-content/uploads/2022/04/content-image01.jpg")', transition:'all ease 0.3s' }}></motion.div>)}
                     <h1 key={index} className='text-9xl leading-[6rem]'>{item}</h1></div>
                 </div>))}
 
             </div>
-            <div className="border-t-[1.5px] border-zinc-600  w-full mt-20"></div>
+            <div id='line' className={`${ 'border-t-[1.5px] border-zinc-600 w-0'}   mt-20`} style={{transition:'all ease 0.3s'}}></div>
             <div className="flex px-20 justify-between items-center py-2 ">
                 {['For public and private companies','From the first pitch to IPO'].map((e,i)=>(
-                    <a href='' key={i}>{e}</a>
+                    <a href='' className='group link footerLink opacity-0' key={i}>
+                          <span className='inline-block transition duration-300 ease-out group-hover:-translate-y-3/4 group-hover:opacity-0'>{e}</span>
+                        <span className='inline-block transition duration-300 opacity-0 ease-out absolute left-0 translate-y-3/4 group-hover:translate-y-0 group-hover:opacity-100'>{e}</span></a>
                 ))}
-                <div className="start flex items-center justify-center gap-1">
+                <div className="footerLink opacity-0 start  items-center justify-center gap-1 hidden">
                     <div className="px-4 font-sm capitalize border-zinc-600 cursor-pointer font-normal py-1 border-[1px] rounded-3xl">start the project</div>
                     <div className="w-8 h-8 rounded-full flex justify-center items-center border-[1px] border-zinc-600"><MdArrowOutward /></div>
                 </div>
+                <h1  className='text-7xl font-thin name leading-[6rem]'>{a}<span className='text-5xl'> %</span></h1>
+                
             </div>
         </div>
     )
