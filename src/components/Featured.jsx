@@ -21,16 +21,20 @@ function Featured() {
         <span className="rounded-[50%] bg-[#212121] w-[.7rem] h-[.7rem]"></span>
         {name}
       </h1>
-      <motion.div onHoverStart={()=>handleHover(i)}   onHoverEnd={()=>handleHoverEnd(i)} style={{transition:'all ease 0.3s'}} className="card hover:scale-[.95] cursor-pointer  w-full h-[80vh] overflow-hidden rounded-lg">
+      <motion.div onHoverStart={()=>handleHover(i)}   onHoverEnd={()=>handleHoverEnd(i)} className="cursor-pointer overflow-hidden  w-full h-[80vh]">
+      <motion.div  style={{transition:'all ease 0.3s'}} className="card hover:scale-[.95] cursor-pointer  w-full h-[80vh] overflow-hidden rounded-lg">
         <motion.img initial={{scale:1}} animate={container[i]} transition={{duration:.3}} className="w-full h-full object-cover" src={img} alt="" />
       </motion.div>
-      <div className="flex gap-1 mt-4">
+      </motion.div>
+      <div className="flex gap-1 mt-4 group">
         {btn.map((e, i) => (
           <button
             key={i}
-            className="bg-transparent flex items-center justify-center rounded-full border-[1px] px-3 py-1 border-[#212121]"
-          >
-            {e}
+            className={` relative btn0   bg-transparent flex items-center justify-center rounded-full border-[1px] px-3 py-1 border-[#212121]`}
+         
+         >
+            <span className={`tex relative z-[10] `}>{e}</span>
+        
           </button>
         ))}
       </div>
@@ -61,7 +65,7 @@ function Featured() {
     },
   ]);
   return (
-    <div className='w-full bg-[#F1F1F1] py-20 font-["neue_montreal"]  text-[#212121]'>
+    <div data-scroll data-scroll-container data-scroll-speed='-.1' className='w-full mt-[-2rem] bg-[#F1F1F1] py-20 font-["neue_montreal"]  text-[#212121]'>
       <div className="w-full px-16">
         <h1 className="text-6xl">Featured projects</h1>
       </div>

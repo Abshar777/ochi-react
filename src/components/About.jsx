@@ -1,8 +1,10 @@
 import React from "react";
+import { motion, useAnimation } from "framer-motion";
+import { MdArrowOutward } from "react-icons/md";
 
 function About() {
   return (
-    <div data-scroll data-scroll-section data-scroll-speed='-.1' className='mt-10 w-full py-20 bg-[#CDEA68] rounded-tl-[25px] font-["neue_montreal"] text-[#212121]  overflow-hidden rounded-tr-[25px]'>
+    <div data-scroll data-scroll-section data-scroll-speed='-.19' className='mt-10 w-full py-20 bg-[#CDEA68] rounded-tl-[25px] font-["neue_montreal"] text-[#212121]  overflow-hidden rounded-tr-[25px]'>
       <div className="text px-10">
         <h1 className="font-['neue_montreal'] w-[90%] text-[3.4rem] leading-none">
           Ochi is a strategic partner for fast-growing tech businesses that need
@@ -43,9 +45,9 @@ function About() {
       <div className="border-[1px] gap-5 mt-12 px-10 flex py-8 border-t-[#a1b562] w-full">
         <div className="w-1/2">
           <h1 className="text-6xl tracking-tight">Our approach:</h1>
-          <button className="bg-zinc-900 text-white py-4 mt-3 px-10 flex gap-3 items-center justify-center rounded-full uppercase">
-            Read More
-            <span className="rounded-[50%] bg-white w-[.7rem] h-[.7rem]"></span>
+          <button className="btn0 bg-zinc-900 relative overflow-hidden group text-white py-4 mt-3 px-7 flex gap-7 items-center justify-between rounded-full uppercase">
+            <span className="relative z-10">Read More</span>
+            <span style={{transition:'all ease 0.3s'}} className="rounded-[50%]   relative z-10 text-[50%] group-hover:scale-[4] text-zinc-900  bg-white w-[.7rem] h-[.7rem] flex items-center justify-center"><MdArrowOutward style={{transition:'all ease 0.3s'}} className="w-0 opacity-0 group-hover:opacity-100 group-hover:w-1/2"/></span>
           </button>
         </div>
         <div className="img w-1/2 h-[70vh] rounded-xl bg-cover bg-center bg-no-repeat" style={{backgroundImage:'url("https://ochi.design/wp-content/uploads/2022/05/Homepage-Photo-663x469.jpg")'}}></div>

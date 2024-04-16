@@ -69,9 +69,16 @@ function LandingPage(props) {
                           <span className='inline-block transition duration-300 ease-out group-hover:-translate-y-3/4 group-hover:opacity-0'>{e}</span>
                         <span className='inline-block transition duration-300 opacity-0 ease-out absolute left-0 translate-y-3/4 group-hover:translate-y-0 group-hover:opacity-100'>{e}</span></a>
                 ))}
-                <div className="footerLink opacity-0 start  items-center justify-center gap-1 hidden">
-                    <div className="px-4 font-sm capitalize border-zinc-600 cursor-pointer font-normal py-1 border-[1px] rounded-3xl">start the project</div>
-                    <div className="w-8 h-8 rounded-full flex justify-center items-center border-[1px] border-zinc-600"><MdArrowOutward /></div>
+                <div className="footerLink group text-zinc-900   btn rounded-3xl opacity-0 start   items-center justify-center gap-1 hidden">
+                    <div className="px-4    font-sm capitalize group-hover:text-zinc-50 group-hover:border-transparent border-zinc-600 overflow-hidden relative cursor-pointer font-normal py-1 border-[1px]  rounded-3xl"><h1 className=''>start the project</h1>
+                    <span style={{transition:'all ease 0.5s'}} className='w-full h-full opacity-0   
+                     rounded-3xl z-[-1]  bg-zinc-900 absolute top-[50%] left-[50%]  -translate-y-[50%] -translate-x-[50%] group-hover:opacity-100'></span>
+                    </div>
+                    <div className="w-8 h-8 relative rounded-full flex justify-center items-center border-[1px] group-hover:text-zinc-100  border-zinc-600"><MdArrowOutward />
+                    <span style={{transition:'all ease 0.5s'}} className='w-0 h-0 opacity-0   
+                     rounded-3xl z-[-1]  bg-zinc-900 absolute top-[50%] left-[50%]  -translate-y-[50%] -translate-x-[50%] group-hover:opacity-100 group-hover:w-full group-hover:h-full'></span>
+                  
+                    </div>
                 </div>
                 <h1  className='text-7xl font-thin name leading-[6rem]'>{a}<span className='text-5xl'> %</span></h1>
                 

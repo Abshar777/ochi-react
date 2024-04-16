@@ -46,3 +46,37 @@
   transform-origin: left;
 
 }
+.btn0{
+  transition: all ease 0.3s;
+  overflow: hidden;
+}
+.tex{
+  transition: all  0.6s cubic-bezier(0.22, 1, 0.36, 1);;
+
+}
+.btn0:hover .tex{
+ color: white;
+}
+
+.btn0::before{
+  content: "";
+  position: absolute;
+  /* bottom: .1rem; */
+  left: 0;
+  height: 120%;
+  width: 100%;
+  border-radius: 40px;
+  transform: scaleY(0);
+  background:black ;
+
+  transform-origin: top;
+  transition: transform 0.3s ease;
+  
+  will-change: transform;
+}
+.btn0:hover::before{
+
+  transform: scaleY(1);
+  transform-origin: bottom;
+
+}
